@@ -80,8 +80,8 @@ export default function Login() {
             method: 'POST',
             headers: {
                 "mode": 'no-cors',
-                "Content-Type": "Application/json",
-                'Access-Control-Allow-Origin': '*'
+                "Content-Type": "Application/json"
+                // 'Access-Control-Allow-Origin': '*'
             },
             body: JSON.stringify(userName)
         })
