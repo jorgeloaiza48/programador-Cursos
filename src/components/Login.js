@@ -79,6 +79,7 @@ export default function Login() {
         fetch("http://localhost:3001/login", {
             method: 'POST',
             headers: {
+                "mode": 'cors',
                 "Content-Type": "Application/json",
                 'Access-Control-Allow-Origin': '*'
             },
