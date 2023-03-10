@@ -1,7 +1,7 @@
 
 const controller = require('./controller')
-//const router = Router()
 const express = require('express')
+//const router = Router()
 const cors = require('cors');
 const app = express()
 const bodyParser = require('body-parser');
