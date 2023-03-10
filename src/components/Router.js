@@ -22,7 +22,7 @@ export default function Router() {
                 <Route exact path='/reset-password/:id/:token' element={<TokenExpired />} />
                 <Route exact path='/login'          element={<Login />} />
                 <Route exact path='/menu'           element={<Menu/>} />
-                <Route exact path='/rejilla'        element={<Rejilla/>} />
+                <Route exact path='https://programadorcursos.onrender.com/rejilla'        element={<Rejilla/>} />
                 {/* <Route exact path='/formulario' element={<Formulario/>} /> */}
                 <Route exact path='/formulario'     element={<FormikContainer/>} />
                 <Route path="*"                     element={<NotFound />} />
