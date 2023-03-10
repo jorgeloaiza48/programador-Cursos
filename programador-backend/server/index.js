@@ -1,5 +1,6 @@
 
 const controller = require('./controller')
+//const router = Router()
 const express = require('express')
 //const router = express.Router()
 const cors = require('cors');
@@ -18,9 +19,10 @@ app.use(cors())
 //use cors to allow cross origin resource sharing
 app.use(
     cors({
-        origin: 'http://localhost:3000',
-        methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS'],
-        allowedHeaders: ['Content-Type', 'Origin', 'X-Requested-With', 'Accept', 'x-client-key', 'x-client-token', 'x-client-secret', 'Authorization'],
+        //origin: 'http://localhost:3000',
+        origin: 'https://programadorcursos.onrender.com/',
+        // methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS'],
+        // allowedHeaders: ['Content-Type', 'Origin', 'X-Requested-With', 'Accept', 'x-client-key', 'x-client-token', 'x-client-secret', 'Authorization'],
         credentials: true,
     })
 );
@@ -33,11 +35,11 @@ app.use(
 // })
 
 app.post('/create-user', controller.createUser)
-app.post('/update-user', controller.updateUser)
-app.post('/borrar-toda-programacion', controller.borrarTodaLaProgramacion)
+app.post('/update-user', controller.updateUser )
+app.post('/borrar-toda-programacion', controller.borrarTodaLaProgramacion )
 app.post('/borrar-curso', controller.borrarUnCurso)
-app.post("/login", controller.login)
-app.post("/forgot-password", controller.forgotPassword)
+app.post("/login",controller.login)
+app.post("/forgot-password",controller.forgotPassword)
 app.get('/reset-password/:id/:token', controller.resetPassword)
 app.post('/reset-password/:id/:token', controller.CambioPassword)
 app.get("/usuarios-registrados", controller.usuariosRegistrados)
