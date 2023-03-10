@@ -51,7 +51,7 @@ export default function OlvidoPassword() {
                         title: "Se ha enviado un correo a " + userName.email + " para reestablecer la contraseña.",
                         icon: "success"
                     })
-                    navigate('http://programadorcursos.onrender.com')
+                    navigate('/')
 
                 }
                 else {
@@ -60,7 +60,7 @@ export default function OlvidoPassword() {
                         title: "El correo ingresado no está registrado.",
                         icon: "error"
                     })
-                    navigate('http://programadorcursos.onrender.com/olvidoPassword')
+                    navigate('/olvidoPassword')
                 }
             })
     }
