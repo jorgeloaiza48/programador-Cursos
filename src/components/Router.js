@@ -20,7 +20,7 @@ export default function Router() {
                 <Route exact path='/registro'       element={<Registro />} />
                 <Route exact path='http://programadorcursos.onrender.com/olvidoPassword' element={<OlvidoPassword />} />
                 <Route exact path='http://programadorcursos.onrender.com/reset-password/:id/:token' element={<TokenExpired />} />
-                <Route exact path='/programadorcursos.onrender.com/login'          element={<Login />} />
+                <Route exact path='https://programadorcursos.onrender.com/login'          element={<Login />} />
                 <Route exact path='/menu'           element={<Menu/>} />
                 <Route exact path='/rejilla'        element={<Rejilla/>} />
                 {/* <Route exact path='/formulario' element={<Formulario/>} /> */}
