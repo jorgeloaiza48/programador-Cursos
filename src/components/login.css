@@ -55,3 +55,8 @@ form .errorPasswordLogin,
     height: 558px;
     margin: 20px;
 }
+.divHome{   
+    padding-left: 30px;
+    padding-top: 20px;    
+    width: fit-content;
+}

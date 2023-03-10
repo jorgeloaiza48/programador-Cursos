@@ -11,6 +11,8 @@ import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import PasswordIcon from '@mui/icons-material/Password';
 import Swal from 'sweetalert2'
 import CopyRight from './copyRight/CopyRight'
+import CottageIcon from '@mui/icons-material/Cottage';
+
 
 
 
@@ -37,7 +39,7 @@ export default function Login() {
     const handleClickEmail = (e) => {
         setErrorEmail("")
     }
-    const handleShowPassword = () =>{
+    const handleShowPassword = () => {
         setShowPassword(!showPassword)
     }
 
@@ -109,6 +111,12 @@ export default function Login() {
 
     return (
         <div className='formLogin'>
+            <Link to="/">
+                <div className='divHome'>
+                    <CottageIcon sx={{ fontSize: 40 }}></CottageIcon>
+                    <p><strong>Inicio</strong></p>
+                </div>
+            </Link>
             <form >
                 <LoginIcon className='loginIcon' sx={{ fontSize: 45 }}></LoginIcon>
                 <h4 className='inicioSesion'>Inicio de sesión</h4>
@@ -116,10 +124,10 @@ export default function Login() {
                     <div classname='containerSecundario'>
                         <div className='form-group d-grid gap-2'>
                             <label>Usuario o email:</label>
-                            <input type="email" className='form-control' name='email' onChange={handleChange} onClick={handleClickEmail} autoComplete="on" placeholder='Ingrese usuario'/> <br />
+                            <input type="email" className='form-control' name='email' onChange={handleChange} onClick={handleClickEmail} autoComplete="on" placeholder='Ingrese usuario' /> <br />
                             <p className='errorEmailLogin'>{errorEmail}</p>
                             <label>Contraseña:</label>
-                            <input type={showPassword ? "password": "text"} className='form-control' name='password' onChange={handleChange} onClick={handleClickPassword} autoComplete="on" placeholder='Ingrese contraseña' /> <br />
+                            <input type={showPassword ? "password" : "text"} className='form-control' name='password' onChange={handleChange} onClick={handleClickPassword} autoComplete="on" placeholder='Ingrese contraseña' /> <br />
                             <p className='errorPasswordLogin'>{errorPassword}</p>
                             <button type="submit" className='btn btn-primary' onClick={iniciarSesion}>Iniciar Sesión</button>
                             <div className='regPass'>
@@ -127,7 +135,7 @@ export default function Login() {
                                 <Link to="/olvidoPassword">¿Olvidó la contraseña?</Link>
                             </div>
                             <MailOutlineIcon className='MailOutlineIconLogin'></MailOutlineIcon>
-                            <PasswordIcon className='PasswordIconLogin'onClick={handleShowPassword}></PasswordIcon>
+                            <PasswordIcon className='PasswordIconLogin' onClick={handleShowPassword}></PasswordIcon>
                         </div>
                     </div>
                 </div>

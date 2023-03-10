@@ -8,6 +8,7 @@ import { Link } from "react-router-dom"
 import { useNavigate } from 'react-router-dom'
 import SyncLockIcon from '@mui/icons-material/SyncLock';
 import CopyRight from './copyRight/CopyRight';
+import CottageIcon from '@mui/icons-material/Cottage';
 
 
 
@@ -86,7 +87,13 @@ export default function ResetPassword() {
 
     return (
         <div className='formRegistro'>
-            <form >
+              <Link to="/">
+                <div className='divHome'>
+                    <CottageIcon sx={{ fontSize: 40 }}></CottageIcon>
+                    <p><strong>Inicio</strong></p>
+                </div>
+            </Link>
+            <form >          
                 <LockResetIcon className='LockResetIcon' sx={{ fontSize: 45 }}></LockResetIcon>
                 <Link to="/login"><div className='logInResetPassword'><LoginIcon sx={{ fontSize: 35 }}></LoginIcon><p>Log in</p></div></Link>
                 <h4 className='textoReseteoContraseña'>Recuperación de Contraseña</h4>

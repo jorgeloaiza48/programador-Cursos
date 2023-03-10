@@ -9,6 +9,7 @@ import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import VpnKeyIcon from '@mui/icons-material/VpnKey';
 import Swal from 'sweetalert2'
 import CopyRight from './copyRight/CopyRight'
+import CottageIcon from '@mui/icons-material/Cottage';
 
 
 
@@ -28,7 +29,7 @@ function Registro() {
     const handleClick = (e) => {
         setErrorPassword("")
     }
-    const handleShowPassword = () =>{
+    const handleShowPassword = () => {
         setShowPassword(!showPassword)
     }
 
@@ -60,7 +61,7 @@ function Registro() {
                         navigate('/registro');
                     }
                 })
-        }       
+        }
         //Solicitud al servidor del JSON con los usuarios registrados para comparar con el email ingresado. 
         // setTimeout(() => {
         //     fetch('http://localhost:3001/usuarios-registrados', {
@@ -84,27 +85,33 @@ function Registro() {
 
     return (
         <div className='formRegistro'>
-        <form onSubmit={handleSubmit}>
-            <PersonAddIcon className='personAddIcon' sx={{ fontSize: 45 }}></PersonAddIcon>
-            <h4 className='registro'>Registro</h4>
-            <div className='containerPrincipal border rounded'>
-                <div classname='containerSecundario'>
-                    <div className='form-group d-grid gap-2'>
-                        <label>Email:</label>
-                        <input type="email" className='form-control' name='email' onChange={handleChange} placeholder="Digite una dirección de correo." required /> <br />
-                        {/* {errorEmail && <p className='errorEmail' >{errorEmail}</p>} */}
-                        <label>Contraseña</label>
-                        <input type={showPassword ? "password": "text"} className='form-control' name='password' onChange={handleChange} onClick={handleClick} placeholder="Digite una contraseña de 5 caracteres o más." required /> <br />
-                        <p className='errorPassword'>{errorPassword}</p>
-                        <button type="submit" className='btn btn-primary'>Registrarse</button>
-                        <Link to="/login">Iniciar Sesión</Link>
-                        <MailOutlineIcon className='MailOutlineIconRegister'></MailOutlineIcon>
-                        <VpnKeyIcon className='VpnKeyIconRegister' onClick={handleShowPassword}></VpnKeyIcon>
+            <Link to="/">
+                <div className='divHome'>
+                    <CottageIcon sx={{ fontSize: 40 }}></CottageIcon>
+                    <p><strong>Inicio</strong></p>
+                </div>
+            </Link>
+            <form onSubmit={handleSubmit}>
+                <PersonAddIcon className='personAddIcon' sx={{ fontSize: 45 }}></PersonAddIcon>
+                <h4 className='registro'>Registro</h4>
+                <div className='containerPrincipal border rounded'>
+                    <div classname='containerSecundario'>
+                        <div className='form-group d-grid gap-2'>
+                            <label>Email:</label>
+                            <input type="email" className='form-control' name='email' onChange={handleChange} placeholder="Digite una dirección de correo." required /> <br />
+                            {/* {errorEmail && <p className='errorEmail' >{errorEmail}</p>} */}
+                            <label>Contraseña</label>
+                            <input type={showPassword ? "password" : "text"} className='form-control' name='password' onChange={handleChange} onClick={handleClick} placeholder="Digite una contraseña de 5 caracteres o más." required /> <br />
+                            <p className='errorPassword'>{errorPassword}</p>
+                            <button type="submit" className='btn btn-primary'>Registrarse</button>
+                            <Link to="/login">Iniciar Sesión</Link>
+                            <MailOutlineIcon className='MailOutlineIconRegister'></MailOutlineIcon>
+                            <VpnKeyIcon className='VpnKeyIconRegister' onClick={handleShowPassword}></VpnKeyIcon>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </form>
-        <CopyRight></CopyRight>
+            </form>
+            <CopyRight></CopyRight>
         </div>
     )
 }

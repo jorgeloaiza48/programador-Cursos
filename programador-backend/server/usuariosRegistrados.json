@@ -3180,5 +3180,41 @@
 				0
 			]
 		]
+	},
+	{
+		"id": 14,
+		"email": "chiquita@gmail.com",
+		"password": "chiquita",
+		"coordenadasCurso": [],
+		"colorDeRelleno": [],
+		"coordColorHoras": [],
+		"totalHorasPorMes": []
+	},
+	{
+		"id": 15,
+		"email": "chiquita@hotmail.com",
+		"password": "chiquita",
+		"coordenadasCurso": [],
+		"colorDeRelleno": [],
+		"coordColorHoras": [],
+		"totalHorasPorMes": []
+	},
+	{
+		"id": 16,
+		"email": "chili@gmail.com",
+		"password": "chili123",
+		"coordenadasCurso": [],
+		"colorDeRelleno": [],
+		"coordColorHoras": [],
+		"totalHorasPorMes": []
+	},
+	{
+		"id": 17,
+		"email": "lulu@gmail.com",
+		"password": "lulu123",
+		"coordenadasCurso": [],
+		"colorDeRelleno": [],
+		"coordColorHoras": [],
+		"totalHorasPorMes": []
 	}
 ]

@@ -7,6 +7,7 @@ import Swal from 'sweetalert2'
 import { useNavigate } from 'react-router-dom'
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import CopyRight from './copyRight/CopyRight';
+import CottageIcon from '@mui/icons-material/Cottage';
 
 
 export default function OlvidoPassword() {
@@ -43,7 +44,7 @@ export default function OlvidoPassword() {
             .then(response => {
                 if (response.status === 200) {
                     Swal.fire({
-                        title: "Se ha enviado un correo a "+ userName.email + " para reestablecer la contraseña.",
+                        title: "Se ha enviado un correo a " + userName.email + " para reestablecer la contraseña.",
                         icon: "success"
                     })
                 }
@@ -59,6 +60,12 @@ export default function OlvidoPassword() {
 
     return (
         <div className='formOlvidoPassword'>
+            <Link to="/">
+                <div className='divHome'>
+                    <CottageIcon sx={{ fontSize: 40 }}></CottageIcon>
+                    <p><strong>Inicio</strong></p>
+                </div>
+            </Link>
             <form >
                 <KeyIcon className='keyIcon' sx={{ fontSize: 45 }}></KeyIcon>
                 <h4 className='textoOlvidoContraseña'>Cambio de contraseña</h4>
