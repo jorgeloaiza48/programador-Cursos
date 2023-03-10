@@ -18,7 +18,6 @@ export default function Login() {
 
     const cookies = new Cookies()
     const navigate = useNavigate();
-    const baseURL = "http://localhost:3001/login"
     const [errorEmail, setErrorEmail] = useState("")
     const [errorPassword, setErrorPassword] = useState("")
     const [userName, setUsername] = useState("")
@@ -58,7 +57,7 @@ export default function Login() {
             setErrorEmail("Debe ingresar un correo electrónico.")
             return
         }
-        // fetch(baseURL, {
+        // fetch("http://localhost:3001/login", {
         //     method: 'GET',
         //     headers: { "Content-Type": "Application/json", "Accept": "application/json" }
         // })
@@ -76,14 +75,13 @@ export default function Login() {
         //     })
         //     .catch(() => alert("No se puede iniciar sesión por un problema en el servidor"),
         //         navigate('/login')
-        //     )
-        Swal.fire({
-            title: "Entré a comparar credenciales",           
-        })
-        console.log("Entré a comparar credenciales")
-        fetch(baseURL, {
+        //     )        
+        fetch("http://localhost:3001/login", {
             method: 'POST',
-            headers: { "Content-Type": "Application/json" },
+            headers: {
+                "Content-Type": "Application/json",
+                'Access-Control-Allow-Origin': '*'
+            },
             body: JSON.stringify(userName)
         })
             .then(response => {
