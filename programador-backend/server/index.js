@@ -1,7 +1,7 @@
 
 const controller = require('./controller')
 const express = require('express')
-const router = express.Router()
+//const router = express.Router()
 const cors = require('cors');
 const app = express()
 const bodyParser = require('body-parser');
@@ -24,20 +24,20 @@ app.use(
         credentials: true,
     })
 );
-app.use((req,res,next)=>{
-    res.setHeader('Access-Control-Allow-Origin','http://localhost:3000');
-    res.setHeader('Access-Control-Allow-Methods','GET,POST,PUT,PATCH,DELETE');
-    res.setHeader('Access-Control-Allow-Methods','Content-Type','Authorization');
-    res.send()
-    //next(); 
-})
+// app.use((req,res,next)=>{
+//     res.setHeader('Access-Control-Allow-Origin','http://localhost:3000');
+//     res.setHeader('Access-Control-Allow-Methods','GET,POST,PUT,PATCH,DELETE');
+//     res.setHeader('Access-Control-Allow-Methods','Content-Type','Authorization');
+//     res.send()
+//     //next(); 
+// })
 
 app.post('/create-user', controller.createUser)
-app.post('/update-user', controller.updateUser )
-app.post('/borrar-toda-programacion', controller.borrarTodaLaProgramacion )
+app.post('/update-user', controller.updateUser)
+app.post('/borrar-toda-programacion', controller.borrarTodaLaProgramacion)
 app.post('/borrar-curso', controller.borrarUnCurso)
-app.post("/login",controller.login)
-app.post("/forgot-password",controller.forgotPassword)
+app.post("/login", controller.login)
+app.post("/forgot-password", controller.forgotPassword)
 app.get('/reset-password/:id/:token', controller.resetPassword)
 app.post('/reset-password/:id/:token', controller.CambioPassword)
 app.get("/usuarios-registrados", controller.usuariosRegistrados)
