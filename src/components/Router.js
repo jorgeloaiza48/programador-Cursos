@@ -18,9 +18,9 @@ export default function Router() {
             <Routes>
                 <Route exact path='/'               element={<Inicio />} />
                 <Route exact path='/registro'       element={<Registro />} />
-                <Route exact path='/olvidoPassword' element={<OlvidoPassword />} />
+                <Route exact path='http://programadorcursos.onrender.com/olvidoPassword' element={<OlvidoPassword />} />
                 <Route exact path='http://programadorcursos.onrender.com/reset-password/:id/:token' element={<TokenExpired />} />
-                <Route exact path='/login'          element={<Login />} />
+                <Route exact path='http://programadorcursos.onrender.com/login'          element={<Login />} />
                 <Route exact path='/menu'           element={<Menu/>} />
                 <Route exact path='/rejilla'        element={<Rejilla/>} />
                 {/* <Route exact path='/formulario' element={<Formulario/>} /> */}
