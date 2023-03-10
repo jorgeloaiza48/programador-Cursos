@@ -118,7 +118,7 @@ export default function Login() {
                     <p><strong>Inicio</strong></p>
                 </div>
             </Link>
-            <form >
+            <form onSubmit={iniciarSesion}>
                 <LoginIcon className='loginIcon' sx={{ fontSize: 45 }}></LoginIcon>
                 <h4 className='inicioSesion'>Inicio de sesión</h4>
                 <div className='containerPrincipal border rounded'>
@@ -130,7 +130,7 @@ export default function Login() {
                             <label>Contraseña:</label>
                             <input type={showPassword ? "password" : "text"} className='form-control' name='password' onChange={handleChange} onClick={handleClickPassword} autoComplete="on" placeholder='Ingrese contraseña' /> <br />
                             <p className='errorPasswordLogin'>{errorPassword}</p>
-                            <button type="submit" className='btn btn-primary' onClick={iniciarSesion}>Iniciar Sesión</button>
+                            <button type="submit" className='btn btn-primary' >Iniciar Sesión</button>
                             <div className='regPass'>
                                 <Link to="/registro">Registrarse</Link>
                                 <Link to="/olvidoPassword">¿Olvidó la contraseña?</Link>
