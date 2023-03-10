@@ -2,7 +2,6 @@
 const controller = require('./controller')
 //const router = Router()
 const express = require('express')
-//const router = express.Router()
 const cors = require('cors');
 const app = express()
 const bodyParser = require('body-parser');
@@ -19,20 +18,19 @@ app.use(cors())
 //use cors to allow cross origin resource sharing
 app.use(
     cors({
-        //origin: 'http://localhost:3000',
-        origin: 'https://programadorcursos.onrender.com/',
-         methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS'],
-        allowedHeaders: ['Content-Type', 'Origin', 'X-Requested-With', 'Accept', 'x-client-key', 'x-client-token', 'x-client-secret', 'Authorization'],
+        origin: 'http://localhost:3000',
+        // methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS'],
+        // allowedHeaders: ['Content-Type', 'Origin', 'X-Requested-With', 'Accept', 'x-client-key', 'x-client-token', 'x-client-secret', 'Authorization'],
         credentials: true,
     })
 );
-app.use((req,res,next)=>{
-    res.setHeader('Access-Control-Allow-Origin','https://programadorcursos.onrender.com/');
-    res.setHeader('Access-Control-Allow-Methods','GET,POST,PUT,PATCH,DELETE');
-    res.setHeader('Access-Control-Allow-Methods','Content-Type','Authorization');
-    res.send()
-    //next(); 
-})
+// app.use((req,res,next)=>{
+//     res.setHeader('Access-Control-Allow-Origin','http://localhost:3000');
+//     res.setHeader('Access-Control-Allow-Methods','GET,POST,PUT,PATCH,DELETE');
+//     res.setHeader('Access-Control-Allow-Methods','Content-Type','Authorization');
+//     res.send()
+//     //next(); 
+// })
 
 app.post('/create-user', controller.createUser)
 app.post('/update-user', controller.updateUser )
