@@ -2,7 +2,7 @@ import React from 'react'
 import KeyIcon from '@mui/icons-material/Key';
 import { Link } from "react-router-dom"
 import './olvidoPassword.css'
-import { useState} from 'react';
+import { useState } from 'react';
 import Swal from 'sweetalert2'
 import { useNavigate } from 'react-router-dom'
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
@@ -24,8 +24,8 @@ export default function OlvidoPassword() {
     }
     const handleClick = (e) => {
         setErrorEmail("")
-    }                                       
-    const cambiarContraseña = (e) => {        
+    }
+    const cambiarContraseña = (e) => {
         e.preventDefault()
         //Esta expresión regular valida que el email ingresado es válido en su estructura, es decir, que tenga usuario, arroba(@) y un dominio.
         let filter = new RegExp(/^(([^<>()\]\\.,;:\s@"]+(\.[^<>()\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/, 'i');
@@ -49,10 +49,10 @@ export default function OlvidoPassword() {
                 if (response.status === 200) {
                     Swal.fire({
                         title: "Se ha enviado un correo a " + userName.email + " para reestablecer la contraseña.",
-                        icon: "success"                       
+                        icon: "success"
                     })
                     navigate('http://programadorcursos.onrender.com')
-                    
+
                 }
                 else {
                     setIsLoading(false)
@@ -64,11 +64,11 @@ export default function OlvidoPassword() {
                 }
             })
     }
-    
-    if (isLoading) {        
-        Swal.fire({title: "Enviando correo..."})
+
+    if (isLoading) {
+        Swal.fire({ title: "Enviando correo..." })
         Swal.showLoading()
-      }
+    }
 
     return (
         <div className='formOlvidoPassword'>

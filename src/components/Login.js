@@ -14,9 +14,6 @@ import CopyRight from './copyRight/CopyRight'
 import CottageIcon from '@mui/icons-material/Cottage';
 
 
-
-
-
 export default function Login() {
 
     const cookies = new Cookies()
@@ -80,7 +77,10 @@ export default function Login() {
         //     .catch(() => alert("No se puede iniciar sesión por un problema en el servidor"),
         //         navigate('/login')
         //     )
-
+        Swal.fire({
+            title: "Entré a comparar credenciales",           
+        })
+        console.log("Entré a comparar credenciales")
         fetch(baseURL, {
             method: 'POST',
             headers: { "Content-Type": "Application/json" },
@@ -90,6 +90,7 @@ export default function Login() {
                 if (response.status === 200) {
                     cookies.set('email', userName.email, { path: '/' })
                     window.location.href = "./rejilla"
+
                 }
                 else {
                     Swal.fire({
