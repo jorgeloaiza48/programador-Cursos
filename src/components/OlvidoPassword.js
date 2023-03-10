@@ -41,7 +41,7 @@ export default function OlvidoPassword() {
         setIsLoading(true)
         fetch('http://localhost:3001/forgot-password', {
             method: 'POST',
-            headers: { "Content-Type": "Application/json" },
+            headers: { "Content-Type": "Application/json", "mode": 'no-cors'},
             body: JSON.stringify(userName)
         })
             .then(response => {
