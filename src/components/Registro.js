@@ -42,7 +42,7 @@ function Registro() {
         else {
             fetch('http://localhost:3001/create-user', {
                 method: 'POST',
-                headers: { "Content-Type": "Application/json" },
+                headers: { "Content-Type": "Application/json", "mode": 'no-cors'},
                 body: JSON.stringify(userName)
             })
                 .then(response => {

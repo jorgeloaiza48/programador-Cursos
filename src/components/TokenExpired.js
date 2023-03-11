@@ -16,7 +16,7 @@ export default function TokenExpired() {
 
   fetch('http://localhost:3001/reset-password/:id/:token', {
     method: 'GET',
-    headers: { "Content-Type": "Application/json" }
+    headers: {"mode": 'no-cors',"Content-Type": "Application/json"}
   })
     .then(response => {
       if (response.status === 200) {

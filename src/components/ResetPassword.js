@@ -64,7 +64,7 @@ export default function ResetPassword() {
         }
         fetch('http://localhost:3001/reset-password/:id/:token', {
             method: 'POST',
-            headers: { "Content-Type": "Application/json" },
+            headers: {"mode": 'no-cors',"Content-Type": "Application/json" },
             body: JSON.stringify(userName)
         })
             .then(response => {
