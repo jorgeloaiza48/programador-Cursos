@@ -51,7 +51,8 @@ export default function OlvidoPassword() {
                         title: "Se ha enviado un correo a " + userName.email + " para reestablecer la contraseña.",
                         icon: "success"
                     })
-                    navigate('/')
+                    window.location.hash = '/'
+                    // navigate('/')
 
                 }
                 else {
@@ -60,7 +61,8 @@ export default function OlvidoPassword() {
                         title: "El correo ingresado no está registrado.",
                         icon: "error"
                     })
-                    navigate('/olvidoPassword')
+                    window.location.hash = '/olvidoPassword'
+                    // navigate('/olvidoPassword')
                 }
             })
     }

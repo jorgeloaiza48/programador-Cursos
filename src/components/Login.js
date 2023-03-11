@@ -97,7 +97,8 @@ export default function Login() {
                         title: "Las credenciales ingresadas no son correctas.",
                         icon: "error"
                     })
-                    navigate('/login')
+                    window.location.hash = '/login'
+                    // navigate('/login')
                 }
             })
     }

@@ -51,14 +51,16 @@ function Registro() {
                             title: "Usuario Creado con éxito",
                             icon: "success"
                         })
-                        navigate('/login') //lleva al formulario de login después de registrarse.  
+                        window.location.hash = '/login'
+                        // navigate('/login') //lleva al formulario de login después de registrarse.  
                     }
                     else {
                         Swal.fire({
                             title: "No se puede crear el usuario porque ya hay uno registrado con el email: " + userName.email,
                             icon: "error"
                         })
-                        navigate('/registro');
+                        window.location.hash = '/registro'
+                        //navigate('/registro');
                     }
                 })
         }

@@ -73,7 +73,8 @@ export default function ResetPassword() {
                         title: "La contraseña se cambió con éxito",
                         icon: "success"
                     })
-                    navigate('/login') //lleva al formulario de login después de registrarse.  
+                    window.location.hash = '/login'
+                    // navigate('/login') //lleva al formulario de login después de cambiar la contraseña.  
                 }
                 else{
                     Swal.fire({
