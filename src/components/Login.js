@@ -88,7 +88,7 @@ export default function Login() {
             .then(response => {
                 if (response.status === 200) {
                     cookies.set('email', userName.email, { path: '/' })
-                    window.location.href = "./#/rejilla"
+                    window.location.hash = "./rejilla"
                     //window.location.href = 'https://programadorcursos.onrender.com/rejilla'
 
                 }
