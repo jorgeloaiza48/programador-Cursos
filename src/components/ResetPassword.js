@@ -5,7 +5,7 @@ import LockResetIcon from '@mui/icons-material/LockReset';
 import LoginIcon from '@mui/icons-material/Login';
 import Swal from 'sweetalert2';
 import { Link } from "react-router-dom"
-import { useNavigate } from 'react-router-dom'
+//import { useNavigate } from 'react-router-dom'
 import SyncLockIcon from '@mui/icons-material/SyncLock';
 import CopyRight from './copyRight/CopyRight';
 import CottageIcon from '@mui/icons-material/Cottage';
@@ -14,7 +14,7 @@ import CottageIcon from '@mui/icons-material/Cottage';
 
 export default function ResetPassword() {
 
-    const navigate = useNavigate();
+    //const navigate = useNavigate();
     const [userName, setUsername] = useState("")
     const [errorPassword, setErrorPassword] = useState("")
     const [errorConfirmPassword, setErrorConfirmPassword] = useState("")
