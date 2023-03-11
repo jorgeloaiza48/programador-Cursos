@@ -179,14 +179,16 @@ function Rejilla() {
       .then((result) => {
         if (result.isConfirmed) {
           cookies.remove('email', { path: "/" })
-          window.location.href = './login'
+          window.location.hash = '/login'
+          //window.location.href = './login'
         }
       })
   }
   //Si no se está logueado y en la barra de direcciones /rejilla entonces redirige al login.
   useEffect(() => {
     if (!cookies.get('email')) {
-      window.location.href = "./login"
+      window.location.hash = "/login"
+      //window.location.href = "./login"
     }
   })
 

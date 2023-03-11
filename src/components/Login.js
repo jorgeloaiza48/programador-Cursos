@@ -102,10 +102,11 @@ export default function Login() {
             })
     }
 
-    //Si ya se inició sesión y se escribe en la barra de direcciones '/login' entonces lo redirige al menú.
+    //Si ya se inició sesión y se escribe en la barra de direcciones '/login' entonces lo redirige al componente "rejilla".
     useEffect(() => {
         if (cookies.get('email')) {
-            window.location.href = "./rejilla"
+            window.location.hash = '/rejilla'
+            //window.location.href = "./rejilla"
         }
     })
 
