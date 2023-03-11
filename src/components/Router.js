@@ -15,7 +15,8 @@ import Inicio from './inicio/Inicio'
 export default function Router() {
     return (
 
-        <HashRouter>
+        // El HasRouter es para que cargue correctamente las vista según la ruta https://www.youtube.com/watch?v=bv2pdxqVqBc
+        <HashRouter> 
             {/* <BrowserRouter> */}
                 <Routes>
                     <Route exact path='/' element={<Inicio />} />
