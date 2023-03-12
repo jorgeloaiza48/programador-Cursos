@@ -6,8 +6,10 @@ const cors = require('cors');
 const app = express()
 const bodyParser = require('body-parser');
 const path = require('path');
-//const history = require('connect-history-api-fallback');
+const history = require('connect-history-api-fallback');
 
+//Al desplegar el proyecto en un servicio remoto es necesario que las rutas del backend
+app.use(history()); // Colocamos este middleware cuando estamos usando el BrowserRouter
 app.use('/', express.static(path.join(__dirname, '/build/')));
 
 app.use(express.json())
