@@ -5,8 +5,10 @@ const express = require('express')
 const cors = require('cors');
 const app = express()
 const bodyParser = require('body-parser');
+const path = require('path');
+//const history = require('connect-history-api-fallback');
 
-
+app.use('/', express.static(path.join(__dirname, '/build/')));
 
 app.use(express.json())
 app.use(bodyParser.json())
