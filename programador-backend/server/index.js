@@ -37,15 +37,15 @@ app.use(
 //     //next(); 
 // })
 
-app.post('/create-user', controller.createUser)
-app.post('/update-user', controller.updateUser )
-app.post('/borrar-toda-programacion', controller.borrarTodaLaProgramacion )
-app.post('/borrar-curso', controller.borrarUnCurso)
-app.post("/login",controller.login)
-app.post("/forgot-password",controller.forgotPassword)
-app.get('/reset-password/:id/:token', controller.resetPassword)
-app.post('/reset-password/:id/:token', controller.CambioPassword)
-app.get("/usuarios-registrados", controller.usuariosRegistrados)
+app.post('/api/create-user', controller.createUser)
+app.post('/api/update-user', controller.updateUser )
+app.post('/api/borrar-toda-programacion', controller.borrarTodaLaProgramacion )
+app.post('/api/borrar-curso', controller.borrarUnCurso)
+app.post("/api/login",controller.login)
+app.post("/api/forgot-password",controller.forgotPassword)
+app.get('/api/reset-password/:id/:token', controller.resetPassword)
+app.post('/api/reset-password/:id/:token', controller.CambioPassword)
+app.get('/api/usuarios-registrados', controller.usuariosRegistrados)
 
 const PORT = process.env.PORT || 3001
 app.listen(PORT, () => {

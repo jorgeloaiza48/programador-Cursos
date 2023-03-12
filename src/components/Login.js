@@ -76,12 +76,11 @@ export default function Login() {
         //     .catch(() => alert("No se puede iniciar sesión por un problema en el servidor"),
         //         navigate('/login')
         //     )        
-        fetch("http://localhost:3001/login", {
+        fetch("https://programador-cursos.onrender.com/api/login", {
             method: 'POST',
             headers: {
-                "mode": 'no-cors',
-                "Content-Type": "Application/json"
-                // 'Access-Control-Allow-Origin': '*'
+                        "mode": 'no-cors',
+                        "Content-Type": "Application/json"              
             },
             body: JSON.stringify(userName)
         })
