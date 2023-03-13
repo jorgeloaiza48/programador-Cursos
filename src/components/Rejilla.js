@@ -192,15 +192,15 @@ function Rejilla() {
     }
   })
 
-  const obtenerDatos = async () => {
-    const data = await fetch("https://api.myjson.online/v1/records/8eee4469-38fd-495a-a73e-34c01fb914a8", {
+  const obtenerDatos = () => {
+    fetch("https://api.myjson.online/v1/records/8eee4469-38fd-495a-a73e-34c01fb914a8", {
       method: 'GET',
       headers: { "mode": 'no-cors', "Content-Type": "Application/json" }
     })
-    const user = await data.json()
-    const userResultFilter = user.filter(element => element.email === cookies.get('email'))
-    setUserResult(userResultFilter)
-    setIsLoading(false)
+      .then((data) => data.json())
+      .then((user) => user.filter(element => element.email === cookies.get('email')))
+      .then(user => setUserResult(user))
+      .then(() => setIsLoading(false))
   }
 
 
