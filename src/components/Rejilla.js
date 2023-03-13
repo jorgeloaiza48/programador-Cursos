@@ -198,6 +198,7 @@ function Rejilla() {
       headers: { "mode": 'no-cors', "Content-Type": "Application/json" }
     })
       .then((data) => data.json())
+      .then(response => JSON.parse(response)) //JSON a JS)
       .then((user) => user.filter(element => element.email === cookies.get('email')))
       .then(user => setUserResult(user))
       .then(() => setIsLoading(false))
