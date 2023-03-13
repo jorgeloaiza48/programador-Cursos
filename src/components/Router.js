@@ -16,8 +16,8 @@ export default function Router() {
     return (
 
         // El HasRouter es para que cargue correctamente las vista según la ruta https://www.youtube.com/watch?v=bv2pdxqVqBc
-        <HashRouter> 
-            {/* <BrowserRouter> */}
+         <HashRouter> 
+             {/* <BrowserRouter>  */}
                 <Routes>
                     <Route exact path='/' element={<Inicio />} />
                     <Route exact path='/registro' element={<Registro />} />
@@ -30,7 +30,7 @@ export default function Router() {
                     <Route exact path='/formulario' element={<FormikContainer />} />
                     <Route path="*" element={<NotFound />} />
                 </Routes>
-            {/* </BrowserRouter> */}
-        </HashRouter>
+             {/* </BrowserRouter>  */}
+         </HashRouter>
     )
 }

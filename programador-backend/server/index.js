@@ -9,7 +9,7 @@ const path = require('path');
 const history = require('connect-history-api-fallback');
 
 //Al desplegar el proyecto en un servicio remoto es necesario que las rutas del backend
-app.use(history()); // Colocamos este middleware cuando estamos usando el BrowserRouter
+//app.use(history()); // Colocamos este middleware cuando estamos usando el BrowserRouter
 app.use('/', express.static(path.join(__dirname, '/build/')));
 
 app.use(express.json())
@@ -37,17 +37,20 @@ app.use(
 //     //next(); 
 // })
 
+//Rutas para remoto
 app.post('/api/create-user', controller.createUser)
-app.post('/api/update-user', controller.updateUser )
-app.post('/api/borrar-toda-programacion', controller.borrarTodaLaProgramacion )
-app.post('/api/borrar-curso', controller.borrarUnCurso)
-app.post("/api/login",controller.login)
-app.post("/api/forgot-password",controller.forgotPassword)
-app.get('/api/reset-password/:id/:token', controller.resetPassword)
-app.post('/api/reset-password/:id/:token', controller.CambioPassword)
-app.get('/api/usuarios-registrados', controller.usuariosRegistrados)
+// app.post('/api/update-user', controller.updateUser )
+// app.post('/api/borrar-toda-programacion', controller.borrarTodaLaProgramacion )
+// app.post('/api/borrar-curso', controller.borrarUnCurso)
+// app.post("/api/login",controller.login)
+// app.post("/api/forgot-password",controller.forgotPassword)
+// app.get('/api/reset-password/:id/:token', controller.resetPassword)
+// app.post('/api/reset-password/:id/:token', controller.CambioPassword)
+// app.get('/api/usuarios-registrados', controller.usuariosRegistrados)
+
+//Rutas para local
+// app.get('/usuarios-registrados', controller.usuariosRegistrados)
+// app.post('/login',controller.login)
 
 const PORT = process.env.PORT || 3001
-app.listen(PORT, () => {
-    console.log("Server listening on port ", PORT)
-})
+app.listen(PORT, () => {console.log("Server listening on port ", PORT)})

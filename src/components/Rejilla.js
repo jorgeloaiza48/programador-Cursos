@@ -193,14 +193,17 @@ function Rejilla() {
   })
 
   const obtenerDatos = () => {
-    fetch("https://api.myjson.online/v1/records/8eee4469-38fd-495a-a73e-34c01fb914a8", {
+    let myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    let requestOptions = {
       method: 'GET',
-      headers: { "mode": 'no-cors', "Content-Type": "Application/json" }
-    })
-      .then((data) => data.json())
-      .then(response => JSON.parse(response)) //JSON a JS)
-      .then(result => console.log("Esto es result --->> ",result))
-      .then((user) => user.filter(element => element.email === cookies.get('email')))
+      headers: myHeaders,
+      redirect: 'follow'
+    };
+    fetch("https://api.myjson.online/v1/records/8eee4469-38fd-495a-a73e-34c01fb914a8", requestOptions)
+      .then((data) => data.json())      
+      .then((user) => user.data.filter(element => element.email === cookies.get('email')))      
       .then(user => setUserResult(user))
       .then(() => setIsLoading(false))
   }

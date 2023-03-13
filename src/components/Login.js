@@ -57,38 +57,15 @@ export default function Login() {
             setErrorEmail("Debe ingresar un correo electrónico.")
             return
         }
-        // fetch("http://localhost:3001/login", {
-        //     method: 'GET',
-        //     headers: { "Content-Type": "Application/json", "Accept": "application/json" }
-        // })
-        //     .then(response => response.json())
-        //     .then(function (response) {
-        //         let result = response.filter(element => element.email === userName.email && element.password === userName.password)
-        //         if (result.length > 0) {
-        //             cookies.set('email', userName.email, { path: '/' })
-        //             window.location.href = "./rejilla"
-        //         }
-        //         else {
-        //             alert("El correo y/o la contraseña ingresada no son correctas.")
-        //             navigate('/login')
-        //         }
-        //     })
-        //     .catch(() => alert("No se puede iniciar sesión por un problema en el servidor"),
-        //         navigate('/login')
-        //     )        
-        fetch("https://programador-cursos.onrender.com/api/login", {
+        fetch("http://localhost:3001/login", {
             method: 'POST',
-            headers: {
-                        "mode": 'no-cors',
-                        "Content-Type": "Application/json"              
-            },
+            headers: { "Content-Type": "Application/json", "Accept": "application/json" },
             body: JSON.stringify(userName)
         })
             .then(response => {
                 if (response.status === 200) {
                     cookies.set('email', userName.email, { path: '/' })
-                    window.location.hash = "/rejilla"
-                    //window.location.href = './rejilla'
+                    window.location.href = './rejilla'
 
                 }
                 else {
@@ -96,10 +73,40 @@ export default function Login() {
                         title: "Las credenciales ingresadas no son correctas.",
                         icon: "error"
                     })
-                    window.location.hash = '/login'
-                    // navigate('/login')
                 }
             })
+            .catch(() => Swal.fire({
+                title: "No se puede iniciar sesión por un problema en el servidor",
+                icon: "error"
+            }),
+                navigate('/login')
+            )
+
+
+        // fetch("https://programador-cursos.onrender.com/api/login", {
+        //     method: 'POST',
+        //     headers: {
+        //                 "mode": 'no-cors',
+        //                 "Content-Type": "Application/json"              
+        //     },
+        //     body: JSON.stringify(userName)
+        // })
+        //     .then(response => {
+        //         if (response.status === 200) {
+        //             cookies.set('email', userName.email, { path: '/' })
+        //             window.location.hash = "/rejilla"
+        //             //window.location.href = './rejilla'
+
+        //         }
+        //         else {
+        //             Swal.fire({
+        //                 title: "Las credenciales ingresadas no son correctas.",
+        //                 icon: "error"
+        //             })
+        //             window.location.hash = '/login'
+        //             // navigate('/login')
+        //         }
+        //     })
     }
 
     //Si ya se inició sesión y se escribe en la barra de direcciones '/login' entonces lo redirige al componente "rejilla".
