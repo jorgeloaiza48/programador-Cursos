@@ -40,7 +40,7 @@ function Registro() {
             return
         }
         else {
-            fetch('http://localhost:3001/create-user', {
+            fetch('https://programador-cursos.onrender.com/api/create-user', {
                 method: 'POST',
                 headers: { "Content-Type": "Application/json", "mode": 'no-cors'},
                 body: JSON.stringify(userName)

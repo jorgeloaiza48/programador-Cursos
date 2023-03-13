@@ -15,38 +15,83 @@ let token = ""
 const controller = {
 
     createUser: (req, res) => {
-        let usersFilePath = path.join(__dirname, './usuariosRegistrados.json');
-        let users = fs.readFileSync(usersFilePath, 'utf-8')
-        let NewUser = []
-        NewUser = JSON.parse(users) //JSON a JS
-        let id = NewUser.length + 1
 
-        let nuevoUsuario = {
-            id: id,
-            email: req.body.email,
-            password: req.body.password,
-            coordenadasCurso: [],
-            colorDeRelleno: [],
-            coordColorHoras: [],
-            totalHorasPorMes: []
-        }
-        if (users.length === 0) {
-            NewUser.push(nuevoUsuario)
-        }
-        else {
-            let userFilter = NewUser.filter(element => element.email === req.body.email)
-            if (userFilter.length !== 0) {
-                res.status(400).send('No creado')
-                // res.send("Usuario NO creado")
+        fetch("https://api.myjson.online/v1/records/8eee4469-38fd-495a-a73e-34c01fb914a8", {
+            method: 'GET',
+            headers: {
+                "mode": 'no-cors',
+                "Content-Type": "Application/json"
             }
-            else {
-                NewUser.push(nuevoUsuario)
-                fs.writeFileSync(usersFilePath, JSON.stringify(NewUser, null, "\t")) //de JS a JSON           
-                res.status(200).send("Usuario creado")
-                //res.send("Usuario creado")
+        })
+            .then(response => response.json())
+            .then(result => {
+                //let NewUser = []
+                let id = result.length + 1
+                let nuevoUsuario = {
+                    id: id,
+                    email: req.body.email,
+                    password: req.body.password,
+                    coordenadasCurso: [],
+                    colorDeRelleno: [],
+                    coordColorHoras: [],
+                    totalHorasPorMes: []
+                }
+                if (result.length == 0) {
+                    //NewUser.push(nuevoUsuario)
+                    result.push(nuevoUsuario)
+                }
+                else {
+                    let userFilter = result.filter(element => element.email === req.body.email)
+                    if (userFilter.length !== 0) {
+                        res.status(400).send('Usuario ya se encuentra registrado')
+                    }
+                    else {
+                        result.push(nuevoUsuario)
+                        fetch("https://api.myjson.online/v1/records", {
+                            method: 'POST',
+                            headers: { "mode": 'no-cors', "Content-Type": "Application/json" },
+                            body: JSON.stringify(result)
+                        })
+                        res.status(200).send("Usuario creado")
+                    }
+                }
+            })
 
-            }
-        }
+
+
+        //Para localhost
+        // let usersFilePath = path.join(__dirname, './usuariosRegistrados.json');
+        // let users = fs.readFileSync(usersFilePath, 'utf-8')
+        // let NewUser = []
+        // NewUser = JSON.parse(users) //JSON a JS
+        // let id = NewUser.length + 1
+
+        // let nuevoUsuario = {
+        //     id: id,
+        //     email: req.body.email,
+        //     password: req.body.password,
+        //     coordenadasCurso: [],
+        //     colorDeRelleno: [],
+        //     coordColorHoras: [],
+        //     totalHorasPorMes: []
+        // }
+        // if (users.length === 0) {
+        //     NewUser.push(nuevoUsuario)
+        // }
+        // else {
+        //     let userFilter = NewUser.filter(element => element.email === req.body.email)
+        //     if (userFilter.length !== 0) {
+        //         res.status(400).send('No creado')
+        //         // res.send("Usuario NO creado")
+        //     }
+        //     else {
+        //         NewUser.push(nuevoUsuario)
+        //         fs.writeFileSync(usersFilePath, JSON.stringify(NewUser, null, "\t")) //de JS a JSON           
+        //         res.status(200).send("Usuario creado")
+        //res.send("Usuario creado")
+
+        //}
+        //}
     },
 
     updateUser: (req, res) => {
@@ -107,18 +152,7 @@ const controller = {
     },
 
     login: (req, res) => {
-        //let usersFilePath = path.join(__dirname, './usuariosRegistrados.json'); //Para localhost
-        //let users = fs.readFileSync(usersFilePath, 'utf-8') //para localhost
-        //let user = []
-        //user = JSON.parse(users) //JSON a JS   
-        //let userFilter = user.filter(element => (element.email === req.body.email && element.password === req.body.password))
-        // if (userFilter.length !== 0) {
-        //     res.status(200).send('Usuario encontrado')
-        // }
-        // else {
-        //     res.status(400).send('Usuario NO encontrado')
-        // }
-        
+
         fetch("https://api.myjson.online/v1/records/8eee4469-38fd-495a-a73e-34c01fb914a8", {
             method: 'GET',
             headers: {
@@ -137,7 +171,17 @@ const controller = {
                 }
             })
 
-
+        //let usersFilePath = path.join(__dirname, './usuariosRegistrados.json'); //Para localhost
+        //let users = fs.readFileSync(usersFilePath, 'utf-8') //para localhost
+        //let user = []
+        //user = JSON.parse(users) //JSON a JS   
+        //let userFilter = user.filter(element => (element.email === req.body.email && element.password === req.body.password))
+        // if (userFilter.length !== 0) {
+        //     res.status(200).send('Usuario encontrado')
+        // }
+        // else {
+        //     res.status(400).send('Usuario NO encontrado')
+        // }
 
 
     },
