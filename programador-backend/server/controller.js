@@ -48,7 +48,7 @@ const controller = {
                     }
                     else {
                         result.data.push(nuevoUsuario)
-                        let urlencoded = new URLSearchParams
+                        let urlencoded = new URLSearchParams()
                         urlencoded.append("jsonData",result.data)
                         urlencoded.append("collectionId","8eee4469-38fd-495a-a73e-34c01fb914a8")
                         fetch("https://api.myjson.online/v1/records", {
