@@ -24,6 +24,7 @@ const controller = {
             }
         })
             .then(response => response.json())
+            .then(response => console.log(response.data))
             .then(result => {
                 //let NewUser = []
                 let id = result.data.length + 1
