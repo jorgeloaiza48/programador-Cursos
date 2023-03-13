@@ -47,10 +47,13 @@ const controller = {
                     }
                     else {
                         result.push(nuevoUsuario)
+                        let urlencoded = new URLSearchParams
+                        urlencoded.append("jsonData",result)
+                        urlencoded.append("collectionId","8eee4469-38fd-495a-a73e-34c01fb914a8")
                         fetch("https://api.myjson.online/v1/records", {
                             method: 'POST',
                             headers: { "mode": 'no-cors', "Content-Type": "Application/json" },
-                            body: JSON.stringify(result)
+                            body: urlencoded
                         })
                         res.status(200).send("Usuario creado")
                     }
