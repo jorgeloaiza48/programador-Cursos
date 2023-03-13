@@ -107,17 +107,39 @@ const controller = {
     },
 
     login: (req, res) => {
-        let usersFilePath = path.join(__dirname, './usuariosRegistrados.json');
-        let users = fs.readFileSync(usersFilePath, 'utf-8')
-        let user = []
-        user = JSON.parse(users) //JSON a JS   
-        let userFilter = user.filter(element => (element.email === req.body.email && element.password === req.body.password))
-        if (userFilter.length !== 0) {
-            res.status(200).send('Usuario encontrado')
-        }
-        else {
-            res.status(400).send('Usuario NO encontrado')
-        }
+        //let usersFilePath = path.join(__dirname, './usuariosRegistrados.json'); //Para localhost
+        //let users = fs.readFileSync(usersFilePath, 'utf-8') //para localhost
+        //let user = []
+        //user = JSON.parse(users) //JSON a JS   
+        //let userFilter = user.filter(element => (element.email === req.body.email && element.password === req.body.password))
+        // if (userFilter.length !== 0) {
+        //     res.status(200).send('Usuario encontrado')
+        // }
+        // else {
+        //     res.status(400).send('Usuario NO encontrado')
+        // }
+        
+        fetch("https://api.myjson.online/v1/records/8eee4469-38fd-495a-a73e-34c01fb914a8", {
+            method: 'GET',
+            headers: {
+                "mode": 'no-cors',
+                "Content-Type": "Application/json"
+            }
+        })
+            .then(response => response.json())
+            .then(result => {
+                let userFilter = result.filter(element => (element.email === req.body.email && element.password === req.body.password))
+                if (userFilter.length !== 0) {
+                    res.status(200).send('Usuario encontrado')
+                }
+                else {
+                    res.status(400).send('Usuario NO encontrado')
+                }
+            })
+
+
+
+
     },
 
     forgotPassword: (req, res) => {
