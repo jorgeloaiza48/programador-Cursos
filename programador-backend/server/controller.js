@@ -15,16 +15,16 @@ let token = ""
 const controller = {
 
     createUser: (req, res) => {
-
-        fetch("https://api.myjson.online/v1/records/8eee4469-38fd-495a-a73e-34c01fb914a8", {
-            method: 'GET',
-            headers: {
-                "mode": 'no-cors',
-                "Content-Type": "Application/json"
-            }
-        })
-            .then(response => response.json())
-            .then(response => console.log(response.data))
+        
+        let myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");    
+        let requestOptions = {
+          method: 'GET',
+          headers: myHeaders,
+          redirect: 'follow'
+        };
+        fetch("https://api.myjson.online/v1/records/8eee4469-38fd-495a-a73e-34c01fb914a8", requestOptions)
+            .then(response => response.json())           
             .then(result => {
                 //let NewUser = []
                 let id = result.data.length + 1
