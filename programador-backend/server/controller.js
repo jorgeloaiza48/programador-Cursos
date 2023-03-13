@@ -26,7 +26,7 @@ const controller = {
             .then(response => response.json())
             .then(result => {
                 //let NewUser = []
-                let id = result.length + 1
+                let id = result.data.length + 1
                 let nuevoUsuario = {
                     id: id,
                     email: req.body.email,
@@ -36,19 +36,19 @@ const controller = {
                     coordColorHoras: [],
                     totalHorasPorMes: []
                 }
-                if (result.length == 0) {
+                if (result.data.length == 0) {
                     //NewUser.push(nuevoUsuario)
-                    result.push(nuevoUsuario)
+                    result.data.push(nuevoUsuario)
                 }
                 else {
-                    let userFilter = result.filter(element => element.email === req.body.email)
+                    let userFilter = result.data.filter(element => element.email === req.body.email)
                     if (userFilter.length !== 0) {
                         res.status(400).send('Usuario ya se encuentra registrado')
                     }
                     else {
-                        result.push(nuevoUsuario)
+                        result.data.push(nuevoUsuario)
                         let urlencoded = new URLSearchParams
-                        urlencoded.append("jsonData",result)
+                        urlencoded.append("jsonData",result.data)
                         urlencoded.append("collectionId","8eee4469-38fd-495a-a73e-34c01fb914a8")
                         fetch("https://api.myjson.online/v1/records", {
                             method: 'POST',
