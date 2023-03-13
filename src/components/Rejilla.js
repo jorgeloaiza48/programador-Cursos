@@ -193,15 +193,27 @@ function Rejilla() {
   })
 
   const obtenerDatos = async () => {
-    const data = await fetch('https://programador-cursos.onrender.com/api/usuarios-registrados')
+    const data = await fetch("https://api.myjson.online/v1/records/8eee4469-38fd-495a-a73e-34c01fb914a8", {
+      method: 'GET',
+      headers: { "mode": 'no-cors', "Content-Type": "Application/json" }
+    })
     const user = await data.json()
     const userResultFilter = user.filter(element => element.email === cookies.get('email'))
     setUserResult(userResultFilter)
     setIsLoading(false)
-    console.log("Esto es userResult fuera de cells ", userResult)
-    console.log("Esto es userResult[0] fuera de Cells ", userResult[0])
-    console.log("Esto es la longitud de UserResult ", userResult.length)
   }
+
+
+  // const obtenerDatos = async () => {
+  //   const data = await fetch('https://programador-cursos.onrender.com/api/usuarios-registrados')
+  //   const user = await data.json()
+  //   const userResultFilter = user.filter(element => element.email === cookies.get('email'))
+  //   setUserResult(userResultFilter)
+  //   setIsLoading(false)
+  //   console.log("Esto es userResult fuera de cells ", userResult)
+  //   console.log("Esto es userResult[0] fuera de Cells ", userResult[0])
+  //   console.log("Esto es la longitud de UserResult ", userResult.length)
+  // }
 
   // const obtenerDatos = () => {
   //   fetch('http://localhost:3001/usuarios-registrados')
@@ -881,8 +893,8 @@ function Rejilla() {
         <div className='borrarProgramacion' onClick={deleteWholeProgramming}><DeleteForeverIcon sx={{ fontSize: 35 }}></DeleteForeverIcon><span className='borrarProgramacionTexto'><WarningAmberIcon></WarningAmberIcon><br></br>Borrar toda la programación del año.</span></div>
         <div className='HelpIcon'><HelpIcon sx={{ fontSize: 35 }}></HelpIcon><span className='HelpIconText'><QuizIcon></QuizIcon>Para crear o programar un curso haga click en la celda correspondiente a la fecha y hora de inicio.<br></br><br></br><QuizIcon></QuizIcon>Para borrar un curso específico haga click sobre el <strong>color</strong> del curso a borrar ubicado en la parte inferior, sobre las horas (ver imagen). Se le pedirá confirmación antes de borrar el curso.<br></br><img src="/colores-cursos.png" alt='logo' /></span></div>
         <div className='avatar'><Avatar sx={avatarStyle}><PersonIcon></PersonIcon></Avatar><span className='emailAvatar'>{cookies.get('email')}</span></div>
-      </div>    
-      <CopyRight></CopyRight>  
+      </div>
+      <CopyRight></CopyRight>
     </div>
 
   )
