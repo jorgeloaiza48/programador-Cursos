@@ -199,6 +199,7 @@ function Rejilla() {
     })
       .then((data) => data.json())
       .then(response => JSON.parse(response)) //JSON a JS)
+      .then(result => console.log("Esto es result --->> ",result))
       .then((user) => user.filter(element => element.email === cookies.get('email')))
       .then(user => setUserResult(user))
       .then(() => setIsLoading(false))
