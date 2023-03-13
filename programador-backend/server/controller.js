@@ -48,14 +48,18 @@ const controller = {
                     }
                     else {
                         result.data.push(nuevoUsuario)
+                        let myHeaders = new Headers();
+                        myHeaders.append("Content-Type", "application/x-www-form-urlencoded")
                         let urlencoded = new URLSearchParams()
-                        urlencoded.append("jsonData",result.data)
-                        urlencoded.append("collectionId","8eee4469-38fd-495a-a73e-34c01fb914a8")
-                        fetch("https://api.myjson.online/v1/records", {
+                        urlencoded.append("jsonData", result.data)
+                        urlencoded.append("collectionId", "8eee4469-38fd-495a-a73e-34c01fb914a8")
+                        let requestOptions = {
                             method: 'POST',
-                            headers: { "mode": 'no-cors', "Content-Type": "Application/json" },
-                            body: urlencoded
-                        })
+                            headers: myHeaders,
+                            body: urlencoded,
+                            redirect: 'follow'
+                        }
+                        fetch("https://api.myjson.online/v1/records", requestOptions)
                         res.status(200).send("Usuario creado")
                     }
                 }
