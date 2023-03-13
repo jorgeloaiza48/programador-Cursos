@@ -193,7 +193,7 @@ function Rejilla() {
   })
 
   const obtenerDatos = async () => {
-    const data = await fetch('http://localhost:3001/usuarios-registrados')
+    const data = await fetch('https://programador-cursos.onrender.com/api/usuarios-registrados')
     const user = await data.json()
     const userResultFilter = user.filter(element => element.email === cookies.get('email'))
     setUserResult(userResultFilter)
